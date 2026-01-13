@@ -1,0 +1,17 @@
+{
+  "/Interno": {
+    "target": "http://dldsapp3",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/Home": {
+    "target": "https://localhost:7178",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "headers": {
+      "Connection": "keep-alive"
+    }
+  }
+}

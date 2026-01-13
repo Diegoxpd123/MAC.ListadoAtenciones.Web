@@ -1,0 +1,619 @@
+<div class="header-title d-flex w-100 pt-3">
+  <h5 class="px-2 fw-semibold px-3" style="width: 90%;">&nbsp;Filtro avanzado de llamadas</h5>
+  <div class="text-end" style="width: 10%;">
+    <button type="button" class="btn btn-danger btn-sm fw-bold me-4 border-0" (click)="closeModal()">X</button>
+  </div>
+</div>
+<div class="medida" style="width: 1250px;">
+
+  <section class="col-sm-12 p-3 pe-4 px-4  mt-0 tabla-scroll rspMargenes" style="margin:auto; height: 600px;">
+    <form id="formFiltros" class="">
+      <fieldset class="card shadow-sm p-0">
+        <div class="col-sm-12 p-0">
+          <div>
+            <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+                     width: 100%; border: 0 !important; /*position: absolute;*/ left: 0; top: 0;
+                      border-radius: 6px 6px 0 0 !important; padding: .5%; padding: .6% 1.2% .6% 1.2%;
+                       border-bottom: 1px solid #b3b3b3 !important">
+              &nbsp;Datos de llamada
+            </div>
+            <div class="col-sm-12  px-4 py-2">
+              <div class="">
+                <!-- <form id="formFiltros" class=""> -->
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex rpsMedida sinDflex" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fTipoId" class="form-label mb-1">Tipo ID</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" id="fTipoId" name="tipoId">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of tipoIdLlamada()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 ">
+                      <label for="fTipo" class="form-label mb-1">Código llamada</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <input type="text" class="form-control form-control-sm" id="fCodigo" placeholder="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex ">
+                  <div class="col-sm-6 d-flex  sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fTipo" class="form-label mb-1">ID Ciente</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form-control-sm" id="fCodigo" placeholder="">
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex  sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 ">
+                      <label for="fTipo" class="form-label mb-1">N° Teléfono</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form-control-sm" id="fCodigo" placeholder="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fDescripcion" class="form-label mb-1">Descripción</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" id="fDescripcion" name="descripcion">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of descripciones()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex  sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 pe-4 rspPdgCero">
+                      <select class="form-select form-select-sm" id="fTipo">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Instalación">Instalación</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Soporte">Soporte</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-8 rspMargin">
+                      <input type="text" class="form-control form-control-sm" id="fCodigo" placeholder="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex  sinDflex rpsMedida" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fDistrito" class="form-label mb-1">Distrito</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" 
+                              id="fDistrito" 
+                              [(ngModel)]="filtro.distritos" 
+                              name="distritos"
+                              multiple
+                              size="3"
+                              style="min-height: 70px;">
+                        <option *ngFor="let distrito of distritos()" [value]="distrito.codigo">
+                          {{ distrito.descripcion }}
+                        </option>
+                      </select>
+                      <small class="form-text text-muted" style="font-size: 0.7rem;">Mantén presionado Ctrl (o Cmd en Mac) para seleccionar múltiples opciones</small>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex  sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 ">
+                      <label for="fTipo" class="form-label mb-1">Usuario</label>
+                    </div>
+                    <div class="col-sm-7 ">
+                      <div class="col-sm-12 d-flex ">
+                        <input type="text" class="form-control form-control-sm" id="fCodigo" placeholder="">
+                        <button type="reset" class="btn btn-sm btn-info shadow-sm px-3 text-white">
+                          ...
+                        </button>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fOpcionFecha" class="form-label mb-1">Fecha llamada</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" 
+                              id="fOpcionFecha"
+                              [(ngModel)]="filtro.opcionFecha"
+                              name="opcionFecha"
+                              (change)="onOpcionFechaChange()">
+                        <option *ngFor="let opcion of opcionesFecha" [value]="opcion.valor">
+                          {{ opcion.texto }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <!-- Mostrar dos inputs de calendario cuando se selecciona "entre" -->
+                    <div *ngIf="mostrarFechasEntre()" class="col-sm-12 d-flex">
+                      <div class="col-sm-6 pe-2">
+                        <input type="date" 
+                               class="form-control form-control-sm" 
+                               id="fFechaDesde"
+                               [(ngModel)]="filtro.fechaDesde"
+                               name="fechaDesde"
+                               (change)="validarRangoFechas()">
+                      </div>
+                      <div class="col-sm-6">
+                        <input type="date" 
+                               class="form-control form-control-sm" 
+                               id="fFechaHasta"
+                               [(ngModel)]="filtro.fechaHasta"
+                               name="fechaHasta"
+                               (change)="validarRangoFechas()">
+                      </div>
+                    </div>
+                    <!-- Mensaje de error de validación para "entre" -->
+                    <div *ngIf="mostrarFechasEntre() && errorFecha()" class="col-sm-12 mt-1">
+                      <small class="text-danger">{{ errorFecha() }}</small>
+                    </div>
+                    <!-- Mostrar un solo input de calendario para "hasta" -->
+                    <div *ngIf="mostrarFechaHasta()" class="col-sm-4 pe-4 rspPdgCero">
+                      <input type="date" 
+                             class="form-control form-control-sm" 
+                             id="fFechaHastaUnica"
+                             [(ngModel)]="filtro.fechaHasta"
+                             name="fechaHastaUnica">
+                    </div>
+                    <!-- Mostrar un solo input de calendario para otras opciones o por defecto (siempre visible) -->
+                    <div *ngIf="!mostrarFechasEntre() && !mostrarFechaHasta()" class="col-sm-4 pe-4 rspPdgCero">
+                      <input type="date" 
+                             class="form-control form-control-sm" 
+                             id="fFechaUnica"
+                             [(ngModel)]="filtro.fechaDesde"
+                             name="fechaUnica">
+                    </div>
+                    <div *ngIf="!mostrarFechasEntre()" class="col-sm-8">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fZona" class="form-label mb-1">Zona</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fZona" name="zona">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of zonas()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 pe-4">
+                      <label for="fTipo" class="form-label mb-1">Correo electrónico</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form-control-sm" id="fCodigo" placeholder="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fTipo" class="form-label mb-1">Registro atención</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fTipo">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Instalación">Instalación</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Soporte">Soporte</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 pe-4">
+                      <label for="fTipoOrigen" class="form-label mb-1">Tipo origen llamada</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fTipoOrigen" name="tipoOrigen">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of tipoOrigenLlamada()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fSucursal" class="form-label mb-1">Sucursal</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fSucursal" name="sucursal">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of sucursales()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 pe-4">
+                      <label for="fCentroServicio" class="form-label mb-1">Centro de servicio</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fCentroServicio" name="centroServicio">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of centrosServicio()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 mb-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fTipo" class="form-label mb-1">CR</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" id="fTipo">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Instalación">Instalación</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Soporte">Soporte</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-12 d-flex rpsMedida" style="width: 45%;">
+                    <div class="col-sm-12 pe-12 rspMargin">
+                      <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" id="descargoAplicacion">
+                        <label class="form-check-label" for="descargoAplicacion">Descargó aplicación</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- </form> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="card shadow-sm p-0 mt-3">
+        <div class="col-sm-12 p-0">
+          <div>
+            <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+                     width: 100%; border: 0 !important; /*position: absolute;*/ left: 0; top: 0;
+                      border-radius: 6px 6px 0 0 !important; padding: .5%; padding: .6% 1.2% .6% 1.2%;
+                       border-bottom: 1px solid #b3b3b3 !important">
+              &nbsp;Datos del predio
+            </div>
+            <div class="col-sm-12  px-4 py-2">
+              <div class="">
+                <!-- <form id="formFiltros" class=""> -->
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fClasificacion" class="form-label mb-1">Clasificación</label>
+                    </div>
+                    <div class="col-sm-8 sinDflex rpsMedida rspMargin">
+                      <select class="form-select form-select-sm" 
+                              id="fClasificacion" 
+                              name="clasificacion"
+                              [(ngModel)]="filtro.clasificacion"
+                              [disabled]="filtro.filtroPersonalizadoPredio">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of clasificaciones()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 ">
+                      <label for="fTipoPedido" class="form-label mb-1">Tipo</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" 
+                              id="fTipoPedido" 
+                              name="tipoPedido"
+                              [(ngModel)]="filtro.tipoPedido"
+                              [disabled]="filtro.filtroPersonalizadoPredio">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of tiposPedido()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fSubTipoPedido" class="form-label mb-1">Sub tipo pedido</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" 
+                              id="fSubTipoPedido" 
+                              name="subTipoPedido"
+                              [(ngModel)]="filtro.subTipoPedido"
+                              [disabled]="filtro.filtroPersonalizadoPredio">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of subTiposPedido()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-12 pe-12 d-flex align-items-center">
+                      <div class="form-check me-2">
+                        <input class="form-check-input" 
+                               type="checkbox" 
+                               id="filtroPersonalizadoPredio"
+                               [(ngModel)]="filtro.filtroPersonalizadoPredio"
+                               name="filtroPersonalizadoPredio"
+                               (change)="onFiltroPersonalizadoPredioChange($any($event.target).checked)">
+                        <label class="form-check-label" for="filtroPersonalizadoPredio">Filtro personalizado</label>
+                      </div>
+                      <button *ngIf="filtro.filtroPersonalizadoPredio" 
+                              type="button" 
+                              class="btn btn-sm btn-info px-2 py-1"
+                              (click)="abrirFiltroPersonalizadoPredio()"
+                              style="font-size: 0.75rem;">
+                        ...
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fTipo" class="form-label mb-1">Pedidos reiterados</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fTipo">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Instalación">Instalación</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Soporte">Soporte</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 pe-4">
+                      <label for="fTipo" class="form-label mb-1">Veces desde</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fTipo">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Instalación">Instalación</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Soporte">Soporte</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fEstado" class="form-label mb-1">Estado</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" id="fEstado" name="estado">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of estados()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 ">
+
+                    </div>
+                    <div class="col-sm-7 ">
+                      <div class="col-sm-12 pe-2">
+
+                      </div>
+                    </div>
+                    <div class="col-sm-1 p-0 m-0 ">
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 d-flex mt-4 sinDflex rspPadding mx-5 rspMrgCero">
+                  <div class="col-sm-3 d-flex sinDflex rpsMedida rspMargin">
+                    <div class="form-check ">
+                      <input class="form-check-input" type="checkbox" id="verCodigoManiobra">
+                      <label class="form-check-label" for="verCodigoManiobra">Ver código maniobra</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 d-flex">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="verdatosSAE">
+                      <label class="form-check-label" for="verdatosSAE">Ver datos SAE</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 d-flex">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="verDatosSAS">
+                      <label class="form-check-label" for="verDatosSAS">Ver datos SAS</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 d-flex spMarginB">
+                    <div class="form-check ">
+                      <input class="form-check-input" type="checkbox" id="verinfoPostal">
+                      <label class="form-check-label" for="verinfoPostal">Ver info postal</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- </form> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="card shadow-sm p-0 mt-3">
+        <div class="col-sm-12 p-0">
+          <div>
+            <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+                     width: 100%; border: 0 !important; /*position: absolute;*/ left: 0; top: 0;
+                      border-radius: 6px 6px 0 0 !important; padding: .5%; padding: .6% 1.2% .6% 1.2%;
+                       border-bottom: 1px solid #b3b3b3 !important">
+              &nbsp;Datos de eléctricos
+            </div>
+            <div class="col-sm-12  px-4 py-2">
+              <div class="">
+                <!-- <form id="formFiltros" class=""> -->
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fSet" class="form-label mb-1">SET</label>
+                    </div>
+                    <div class="col-sm-8 ">
+                      <select class="form-select form-select-sm" 
+                              id="fSet" 
+                              name="set"
+                              [(ngModel)]="filtro.set"
+                              [disabled]="filtro.filtroPersonalizadoElectrico">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of sets()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10%">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4 ">
+                      <label for="fAlim" class="form-label mb-1">Alim</label>
+                    </div>
+                    <div class="col-sm-4 pe-4 rspPdgCero">
+                      <select class="form-select form-select-sm" 
+                              id="fAlim" 
+                              name="alim"
+                              [(ngModel)]="filtro.alimentador"
+                              [disabled]="filtro.filtroPersonalizadoElectrico">
+                        <option value="">-- Seleccionar --</option>
+                        <option *ngFor="let item of alimentadores()" [value]="item.codigo">
+                          {{ item.descripcion }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 sinDflex rpsMedida rspMargin d-flex align-items-center">
+                      <div class="form-check me-2">
+                        <input class="form-check-input" 
+                               type="checkbox" 
+                               id="filtropersonalizadoElectrico"
+                               [(ngModel)]="filtro.filtroPersonalizadoElectrico"
+                               name="filtroPersonalizadoElectrico"
+                               (change)="onFiltroPersonalizadoElectricoChange($any($event.target).checked)">
+                        <label class="form-check-label" for="filtropersonalizadoElectrico">Filtro personalizado</label>
+                      </div>
+                      <button *ngIf="filtro.filtroPersonalizadoElectrico" 
+                              type="button" 
+                              class="btn btn-sm btn-info px-2 py-1"
+                              (click)="abrirFiltroPersonalizadoElectrico()"
+                              style="font-size: 0.75rem;">
+                        ...
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex mt-2 sinDflex">
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fTipo" class="form-label mb-1">SED</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" id="fTipo">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Instalación">Instalación</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Soporte">Soporte</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="width: 10% ">
+                  </div>
+                  <div class="col-sm-6 d-flex sinDflex rpsMedida rspMargin rspMarginB" style="width: 45%;">
+                    <div class="col-sm-4">
+                      <label for="fTipo" class="form-label mb-1">Llave</label>
+                    </div>
+                    <div class="col-sm-8 rspMarginB">
+                      <select class="form-select form-select-sm" id="fTipo">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Instalación">Instalación</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Soporte">Soporte</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!-- </form> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="text-end mt-4 ">
+        <button type="button" class="btn btn-sm btn-success" id="btnBuscar" style="margin-right: 5px;">
+          Aceptar
+        </button>
+        <button type="reset" class="btn btn-sm btn-danger" style="margin-right: 5px;">
+          Limpiar
+        </button>
+        <button type="" class="btn btn-sm btn-danger">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </section>
+
+</div>

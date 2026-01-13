@@ -1,0 +1,335 @@
+/* ---------- CONTENEDOR GENERAL ----------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+
+/* Columna fija (Acciones) */
+section, label{
+    font-size: 14px;
+    font-weight: normal;
+}
+table tr{
+    font-size: 34px!important;
+}
+.col-fija {
+    position: sticky;
+    right: 0;
+    // background: #fff;
+    z-index: 10;
+    box-shadow: -3px 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+    /* Scroll horizontal */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    position: relative;
+}
+
+table {
+    width: 100%;
+    min-width: 1900px;
+    /* Forzar scroll */
+    border-collapse: collapse;
+}
+
+th,
+table .tablaEnd tr td {
+    padding: 8px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    text-align: center;
+    background: white;
+}
+
+th {
+    background: #f4f4f4;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+
+tbody tr:hover td {
+    background-color: rgba(255, 181, 181, 0.751) !important;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+
+main {
+    background: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+
+.heigthTabla {
+    height: 455px;
+}
+
+
+.card {
+    border-radius: 10px;
+}
+
+.table-wrapper {
+    max-height: 380px;
+    overflow-x: auto;
+}
+
+.btn-accion i {
+    font-size: 16px;
+    color: white;
+}
+
+
+.page-container {
+    padding: 20px;
+    background: #eef1f6;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.titulo {
+    color: #ffffff;
+    background: #0a6bc2;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* ---------- CARDS ----------- */
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px #00000020;
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+/* ---------- GRID FILTROS ----------- */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+select {
+    width: 100%;
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: 1px solid #9ea4af;
+}
+
+/* ---------- CHECKBOXES ----------- */
+.check-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 18px 0;
+}
+
+/* ---------- BOTONES ----------- */
+.botonera {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.botonera-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-azul {
+    background: #0a6bc2;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-rojo {
+    background: #d9534f;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-verde {
+    background: #28a745;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.agregar {
+    margin-bottom: 10px;
+}
+
+/* ---------- TABLAS ----------- */
+.table-container {
+    width: 100%;
+}
+
+.tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 1400px;
+    border-collapse: collapse;
+}
+
+// table th {
+//     background: #eef1f6;
+//     padding: 10px;
+//     border-bottom: 2px solid #d4d4d4;
+//     font-size: 13px;
+// }
+
+table td {
+    padding: 0;
+    font-size: 13px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* Filas rosadas sutiles */
+tbody tr:nth-child(odd) {
+    background: #ffecec;
+}
+
+/* ---------- ICONOS ACCIONES ----------- */
+.acciones {
+    display: flex;
+    gap: 5px;
+}
+
+.icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    border: none;
+}
+
+.icon.blue {
+    background: #0a6bc2;
+}
+
+.icon.green {
+    background: #28a745;
+}
+
+.icon.red {
+    background: #d9534f;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+  background-color: #e6e6e6;
+  color: #afabab;
+  font-weight: bold;
+  width: 50%;
+  text-align: center;
+  column-gap: 10px;
+}
+
+.tab.active {
+  color: black;
+  border-bottom: 2px solid #fff;
+  background-color: rgba(241, 243, 249, 1);
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+// -------------------------------------------------
+
+
+
+/* ---------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 18px;
+    }
+
+    .contenidoChekBtn {
+        display: inline-block !important;
+    }
+
+    .chkRsp {
+        display: inline !important;
+    }
+
+    .btnRsp {
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    .col-fija {
+        position: inherit !important;
+        box-shadow: none;
+    }
+
+    .medida{
+        width: 100%!important;
+    }
+      .medidabtn{
+        justify-content: end!important;
+        text-align: end!important;
+    }
+    .rspPdgt{
+        padding:10px!important;
+    }
+    .rspPdgL{
+        padding: 10px!important;
+    }
+.btnAgregar{
+    justify-content: end!important;
+    text-align: end!important;
+}
+.trAsoc{
+    text-align: center;
+    padding: 10px!important;
+
+}
+}

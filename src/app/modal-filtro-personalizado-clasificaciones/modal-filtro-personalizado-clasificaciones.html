@@ -1,0 +1,95 @@
+<div class="header-title d-flex w-100 pt-3">
+  <h5 class="px-2 fw-semibold px-3" style="width: 90%;">&nbsp;Filtro personalizado</h5>
+  <div class="text-end" style="width: 10%;">
+    <button type="button" class="btn btn-danger btn-sm fw-bold me-4 border-0" (click)="closeModal()">X</button>
+  </div>
+</div>
+<div class="medida" style="width: 600px;">
+  <section class="col-sm-12 p-3 pe-4 px-4 mt-0 tabla-scroll rspMargenes" style="margin:auto; height: 500px; overflow-y: auto;">
+    <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+         width: 100%; border: 0 !important; left: 0; top: 0;
+         border-radius: 6px 6px 0 0 !important; padding: .6% 1.2% .6% 1.2%;
+         border-bottom: 1px solid #b3b3b3 !important; margin-bottom: 10px;">
+      Clasificaciones
+    </div>
+    
+    <div class="lista-jerarquica">
+      <div *ngFor="let clasificacion of clasificaciones()" class="item-clasificacion mb-2">
+        <!-- Clasificación -->
+        <div class="d-flex align-items-center justify-content-between mb-1">
+          <div class="d-flex align-items-center" style="flex: 1;">
+            <span class="expand-icon me-2" (click)="toggleClasificacion(clasificacion)" style="cursor: pointer; font-weight: bold; width: 20px; text-align: center;">
+              {{ clasificacion.expandida ? '−' : '+' }}
+            </span>
+            <label [for]="'clasif-' + clasificacion.codigo" class="form-check-label mb-0" style="cursor: pointer;">
+              {{ clasificacion.descripcion }}
+            </label>
+          </div>
+          <input type="checkbox" 
+                 class="form-check-input" 
+                 [id]="'clasif-' + clasificacion.codigo"
+                 [checked]="isClasificacionSelected(clasificacion.codigo)"
+                 (change)="onClasificacionChange(clasificacion.codigo, $any($event.target).checked)">
+        </div>
+        
+        <!-- Tipos (mostrar cuando está expandida) -->
+        <div *ngIf="clasificacion.expandida" class="ms-4 mt-2">
+          <div style="font-size: 12px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+               padding: 4px 8px; margin-bottom: 8px; border-radius: 4px;">
+            Tipo pedidos
+          </div>
+          
+          <div *ngFor="let tipo of clasificacion.tipos" class="item-tipo mb-2">
+            <!-- Tipo -->
+            <div class="d-flex align-items-center justify-content-between mb-1">
+              <div class="d-flex align-items-center" style="flex: 1;">
+                <span class="expand-icon me-2" (click)="toggleTipo(tipo, clasificacion)" style="cursor: pointer; font-weight: bold; width: 20px; text-align: center;">
+                  {{ tipo.expandida ? '−' : '+' }}
+                </span>
+                <label [for]="'tipo-' + tipo.codigo" class="form-check-label mb-0" style="cursor: pointer;">
+                  {{ tipo.descripcion }}
+                </label>
+              </div>
+              <input type="checkbox" 
+                     class="form-check-input" 
+                     [id]="'tipo-' + tipo.codigo"
+                     [checked]="isTipoSelected(tipo.codigo)"
+                     (change)="onTipoChange(tipo.codigo, $any($event.target).checked)">
+            </div>
+            
+            <!-- Subtipos (mostrar cuando está expandida) -->
+            <div *ngIf="tipo.expandida" class="ms-4 mt-2">
+              <div style="font-size: 12px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+                   padding: 4px 8px; margin-bottom: 8px; border-radius: 4px;">
+                Sub tipos pedidos
+              </div>
+              
+              <div *ngFor="let subtipo of tipo.subtipos" class="item-subtipo mb-1">
+                <div class="d-flex align-items-center justify-content-between">
+                  <label [for]="'subtipo-' + subtipo.codigo" class="form-check-label mb-0" style="cursor: pointer;">
+                    {{ subtipo.descripcion }}
+                  </label>
+                  <input type="checkbox" 
+                         class="form-check-input" 
+                         [id]="'subtipo-' + subtipo.codigo"
+                         [checked]="isSubtipoSelected(subtipo.codigo)"
+                         (change)="onSubtipoChange(subtipo.codigo, $any($event.target).checked)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="text-end mt-3 mb-3 px-4">
+    <button type="button" class="btn btn-sm btn-success me-2" (click)="aceptar()">
+      Aceptar
+    </button>
+    <button type="button" class="btn btn-sm btn-danger" (click)="closeModal()">
+      Cancelar
+    </button>
+  </div>
+</div>
+

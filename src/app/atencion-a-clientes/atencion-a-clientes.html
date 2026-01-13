@@ -1,0 +1,920 @@
+<!-- <div class="header-title">Atención de clientes</div> -->
+<main class="container-fluid py-4">
+    <!-- <div class="row g-4"> -->
+        <!-- <section class="col-sm-12 p-4 mt-0 rspPdg" style="margin:auto"> -->
+            <!-- <fieldset class="card shadow-sm p-0"> -->
+                <!-- <div class="col-sm-12 p-0"> -->
+                    <!-- <div> -->
+                        <!-- <div class="tabs"
+                            style=" border-radius: 6px 6px 0 0 !important;font-size: 13px; border-bottom: 1px solid #e6dede !important;">
+
+                            <div class="tab centrar respFact2" data-tab="tab2" style="border-radius: 0 8px 0 0;">
+                                Atenciones a clientes
+                            </div>
+                            <div class="tab active centrar respFact1" data-tab="tab1" style="border-radius: 7px 0 0 0;">
+                                Listado de atenciones
+                            </div>
+                            <div class="tab centrar respFact3" data-tab="tab3" style="border-radius: 7px 0 0 0;">
+                                GIS
+                            </div>
+                        </div> -->
+                        <fieldset class="card shadow-sm p-0 m-4 rspMrg">
+                            <div class="col-sm-12 p-0">
+                                <div>
+                                    <div class="tabs"
+                                        style=" border-radius: 6px 6px 0 0 !important;font-size: 13px; border-bottom: 1px solid #e6dede !important;">
+                                        <div class="tab active centrar respFact1" data-tab="tab1"
+                                            style="border-radius: 7px 0 0 0;">
+                                            Nueva atenciones
+                                        </div>
+                                        <div class="tab centrar respFact2" data-tab="tab2"
+                                            style="border-radius: 0 8px 0 0;">
+                                            Cortes programados
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="rspMenuMed" style=" border:1px solid grey;width: 180px; background-color: #2769b3;">
+                                            <div>
+                                                <mat-accordion>
+                                                    <mat-expansion-panel (opened)="panelOpenState.set(true)"
+                                                        (closed)="panelOpenState.set(false)" class="pt-4 pb-4"
+                                                        style="border-radius:0!important;background-color: inherit!important;">
+                                                        <mat-expansion-panel-header >
+                                                            <mat-panel-title style="color: white;" class="oculto">Pestaña
+                                                                1</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="text-white" style="text-align: center; ">
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/bateria.png" alt="" width="50x"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/medidor.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/compra.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/lista.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/candado.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                        </div>
+                                                    </mat-expansion-panel>
+                                                </mat-accordion>
+                                                <mat-accordion>
+                                                    <mat-expansion-panel (opened)="panelOpenState.set(true)"
+                                                        (closed)="panelOpenState.set(false)" class="pt-4 pb-4"
+                                                        style="border-radius:0!important;background-color: inherit!important;">
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title style="color: white;" class="oculto">Pestaña
+                                                                2</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="text-white" style="text-align: center;">
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/bateria.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/medidor.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/compra.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/lista.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/candado.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                        </div>
+                                                    </mat-expansion-panel>
+                                                </mat-accordion>
+                                                <mat-accordion>
+                                                    <mat-expansion-panel (opened)="panelOpenState.set(true)"
+                                                        (closed)="panelOpenState.set(false)" class="pt-4 pb-4"
+                                                        style="border-radius:0!important;background-color: inherit!important;">
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title style="color: white;" class="oculto">Pestaña
+                                                                3</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="text-white" style="text-align: center;">
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/conexion.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/pago.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/lista2.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/comprobante.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                            <div class="p-1">
+                                                                <img src="Icon/medidor2.png" alt="" width="50px"
+                                                                    title="Imagen" style="cursor: pointer;" class="imgWidth rspTamaño">
+                                                            </div>
+                                                            <hr>
+                                                        </div>
+                                                    </mat-expansion-panel>
+                                                </mat-accordion>
+                                            </div>
+                                        </div>
+                                        <div class="w-100 m-4 rspMarginx">
+                                            <fieldset class="card shadow-sm p-0">
+                                                <div class="col-sm-12 p-0">
+                                                    <div>
+                                                        <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+                                                                     width: 100%; border: 0 !important; /*position: absolute;*/ left: 0; top: 0;
+                                                                      border-radius: 6px 6px 0 0 !important; padding: .5%; padding: .6% 1.2% .6% 1.2%;
+                                                                       border-bottom: 1px solid #b3b3b3 !important">
+                                                            &nbsp;Información de la atención teléfonica
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12  px-4 py-2">
+                                                        <div class="card-body">
+                                                            <!-- Filtros -->
+                                                            <form id="formFiltros">
+                                                                <div class="col-sm-12 d-flex rspSinFlex " id="pruebaId">
+                                                                    <div class="col-sm-2 ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Código</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Recepcionista</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Estado</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Fecha de
+                                                                            atención</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Tipo</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 ">
+                                                                          <div class="col-sm-12 d-flex rspSinFlex">
+                                                                        <div class="col-sm-5">
+                                                                            <select class="form-select form-select-sm"
+                                                                                id="fTipo">
+                                                                                <option value="">--
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-2 mx-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <button
+                                                                                class="btn btn-info delete me-1 text-white"
+                                                                                data-bs-toggle="tooltip" title="">Buscar
+
+                                                                            </button>
+
+
+                                                                            <button
+                                                                                class="btn btn-info  delete text-white"
+                                                                                data-bs-toggle="tooltip" title="">...
+                                                                            </button>
+                                                                        </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2  ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Solicitud tk</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2  ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Origen</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 ">
+                                                                        <select class="form-select form-select-sm"
+                                                                            id="fTipo">
+                                                                            <option value="">-- Seleccionar --</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Distrito</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <select class="form-select form-select-sm"
+                                                                            id="fTipo">
+                                                                            <option value="">-- Seleccionar --</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2  ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Dirección</label>
+                                                                    </div>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Referencia</label>
+                                                                    </div>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="card shadow-sm p-0">
+                                                <div class="col-sm-12 p-0">
+                                                    <div>
+                                                        <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+                                                                     width: 100%; border: 0 !important; /*position: absolute;*/ left: 0; top: 0;
+                                                                      border-radius: 6px 6px 0 0 !important; padding: .5%; padding: .6% 1.2% .6% 1.2%;
+                                                                       border-bottom: 1px solid #b3b3b3 !important">
+                                                            &nbsp;Información del contacto
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12  px-4 py-2">
+                                                        <div class="card-body">
+                                                            <!-- Filtros -->
+                                                            <form id="formFiltros">
+                                                                <div class="col-sm-12 d-flex  rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Nombre</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Sin Nombre</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Apellido
+                                                                            paterno</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Sin Apellidos</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Apellido
+                                                                            Materno</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Teléfono
+                                                                            fijo</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Sin teléfono</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex ">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Móvil</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Sin móvil</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Correo
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Sin correo</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Tipo
+                                                                            documento</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Sin documento</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo" class="form-label mb-1">DNI
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm"
+                                                                                id="fCodigo">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Usa WhatsApp</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Relación</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex"
+                                                                    style="text-align: end!important;justify-content: end;">
+                                                                    <button
+                                                                        class="btn btn-primary btn-sm delete me-1 text-white"
+                                                                        data-bs-toggle="tooltip" title="">Ver personas
+
+                                                                    </button>
+                                                                    <button
+                                                                        class="btn btn-primary btn-sm delete me-1 text-white"
+                                                                        data-bs-toggle="tooltip" title="">Ver de
+                                                                        contactos asosiados al suministro:
+                                                                        <span>1649117</span>
+                                                                    </button>
+                                                                    <button
+                                                                        class="btn btn-primary btn-sm delete me-1 text-white"
+                                                                        data-bs-toggle="tooltip" title="">Información
+                                                                        adicional del contacto
+
+                                                                    </button>
+
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="card shadow-sm p-0">
+                                                <div class="col-sm-12 p-0">
+                                                    <div class="col-sm-12  px-4 py-2">
+                                                        <div class="card-body">
+                                                            <!-- Filtros -->
+                                                            <form id="formFiltros">
+                                                                <div class="col-sm-12 d-flex rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Nombre</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Tipo
+                                                                            documento</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo" class="form-label mb-1">N°
+                                                                            Documento</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Celular</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Correo</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Ruta eléctrica
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Tarifa</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Ruta lectura
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1 fw-bold">ACTIVO</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <div class="col-sm-7 me-2">
+                                                                            <label for="fCodigo"
+                                                                                class="form-label mb-1 fw-bold">CON
+                                                                                SUMINISTRO</label>
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            <div class="form-check ">
+                                                                                <input class="form-check-input"
+                                                                                    type="checkbox" id="fecha">
+                                                                                <label class="form-check-label"
+                                                                                    for="fecha">Llamada</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Sucursal
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2  rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Provincia</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Deuda</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Antiguedad</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Indicaciones</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex">
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                        <label for="fCodigo"
+                                                                            class="form-label mb-1">Direccion
+                                                                            postal</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="fCodigo">
+                                                                    </div>
+                                                                    <div class="col-sm-2"></div>
+                                                                    <div class="col-sm-2 d-flex rspSinFlex">
+                                                                    </div>
+                                                                    <div class="col-sm-3 d-flex rspSinFlex">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 d-flex mt-2 rspSinFlex"
+                                                                    style="text-align: end!important;justify-content: end;">
+                                                                    <button
+                                                                        class="btn btn-warning btn-sm delete me-1 text-white"
+                                                                        data-bs-toggle="tooltip" title="">Anotaciones
+
+                                                                    </button>
+                                                                    <button
+                                                                        class="btn btn-primary btn-sm delete me-1 text-white"
+                                                                        data-bs-toggle="tooltip" title="">Asociar
+                                                                        documento
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                            <!-- <fieldset class="card shadow-sm p-0" st> -->
+
+                                            <div class="d-flex mb-4  rspFlexWrap text-center" style="width: 100%;column-gap: 2px;  " >
+                                                <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width:4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/candado.png" alt="" width="25px">
+                                                </div>
+                                       <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/analisis.png" alt="" width="25px">
+                                                </div>
+                                              <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/digital.png" alt="" width="25px">
+                                                </div>
+                                     <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/tecnologia.png" alt="" width="25px">
+                                                </div>
+                                              <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/lista3.png" alt="" width="25px">
+                                                </div>
+                                                 <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/lista4.png" alt="" width="25px">
+                                                </div>
+                                              <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/compra.png" alt="" width="25px">
+                                                </div>
+                                                <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/lista.png" alt="" width="25px">
+                                                </div>
+                                          <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/medidor2.png" alt="" width="25px">
+                                                </div>
+                                                   <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/conexion.png" alt="" width="25px">
+                                                </div>
+                                               <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/pago.png" alt="" width="25px">
+                                                </div>
+                                                     <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/pago.png" alt="" width="25px">
+                                                </div>
+                                                  <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/lista2.png" alt="" width="25px">
+                                                </div>
+                                                <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/comprobante.png" alt="" width="25px">
+                                                </div>
+                                                <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/firma.png" alt="" width="25px">
+                                                </div>
+                                               <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/desarrollo.png" alt="" width="25px">
+                                                </div>
+                                          <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/escudo.png" alt="" width="25px">
+                                                </div>
+                                                   <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/config.png" alt="" width="25px">
+                                                </div>
+                                                   <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/calendar.png" alt="" width="25px">
+                                                </div>
+                                                <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/mundo.png" alt="" width="25px">
+                                                </div>
+                                          <div class="p-2 text-center rspMedImgIcon" title="Imagen" 
+                                                    style="border:1px solid rgb(216, 212, 212); border-radius: 3px; width: 4.76%; cursor: pointer;box-shadow: var(--bs-box-shadow-sm);">
+                                                    <img src="Icon/envio.png" alt="" width="25px">
+                                                </div>
+                                            </div>
+
+
+                                            <!-- </fieldset> -->
+                                            <fieldset class="card shadow-sm p-0 mb-0">
+                                                <div class="col-sm-12 p-0">
+                                                    <div>
+                                                        <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+                                                                     width: 100%; border: 0 !important; /*position: absolute;*/ left: 0; top: 0;
+                                                                      border-radius: 6px 6px 0 0 !important; padding: .5%; padding: .6% 1.2% .6% 1.2%;
+                                                                       border-bottom: 1px solid #b3b3b3 !important">
+                                                            &nbsp;Registro de pedidos
+                                                        </div>
+                                                        <div class="tabla-scroll p-3">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Clasificación</th>
+                                                                        <th>Tipo Pedido</th>
+                                                                        <th>SubTipo Pedido</th>
+                                                                        <th>Descripción</th>
+                                                                        <th>Cant Tipo</th>
+                                                                        <th>Cant sub</th>
+                                                                        <th>Reiterativo</th>
+                                                                        <th>Importante</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="p-2"> <select
+                                                                                class="form-select form-select-sm "
+                                                                                id="">
+                                                                                <option value="">-- Seleccionar --
+                                                                                </option>
+                                                                            </select></td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td> <input class="form-check-input text-center"
+                                                                                type="checkbox" id="fecha"></td>
+                                                                        <td>
+                                                                            <input class="form-check-input text-center"
+                                                                                type="checkbox" id="fecha">
+                                                                        </td>
+
+
+
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </fieldset>
+                                            <div class="col-sm-12 d-flex mt-4 rspSinFlex"
+                                                style="text-align: end!important;justify-content: end;">
+                                                <button class="btn btn-success btn-sm delete me-1 text-white"
+                                                    data-bs-toggle="tooltip" title="">Aceptar
+
+                                                </button>
+                                                <button class="btn btn-danger btn-sm delete me-1 text-white"
+                                                    data-bs-toggle="tooltip" title="">Cancelar
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </fieldset> -->
+        <!-- </section> -->
+    <!-- </div> -->
+</main>

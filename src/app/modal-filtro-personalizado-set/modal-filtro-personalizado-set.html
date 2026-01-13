@@ -1,0 +1,68 @@
+<div class="header-title d-flex w-100 pt-3">
+  <h5 class="px-2 fw-semibold px-3" style="width: 90%;">&nbsp;Filtro personalizado</h5>
+  <div class="text-end" style="width: 10%;">
+    <button type="button" class="btn btn-danger btn-sm fw-bold me-4 border-0" (click)="closeModal()">X</button>
+  </div>
+</div>
+<div class="medida" style="width: 600px;">
+  <section class="col-sm-12 p-3 pe-4 px-4 mt-0 tabla-scroll rspMargenes" style="margin:auto; height: 500px; overflow-y: auto;">
+    <div style="font-size: 13px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+         width: 100%; border: 0 !important; left: 0; top: 0;
+         border-radius: 6px 6px 0 0 !important; padding: .6% 1.2% .6% 1.2%;
+         border-bottom: 1px solid #b3b3b3 !important; margin-bottom: 10px;">
+      SET
+    </div>
+    
+    <div class="lista-jerarquica">
+      <div *ngFor="let set of sets()" class="item-set mb-2">
+        <!-- SET -->
+        <div class="d-flex align-items-center justify-content-between mb-1">
+          <div class="d-flex align-items-center" style="flex: 1;">
+            <span class="expand-icon me-2" (click)="toggleSet(set)" style="cursor: pointer; font-weight: bold; width: 20px; text-align: center;">
+              {{ set.expandida ? '−' : '+' }}
+            </span>
+            <label [for]="'set-' + set.codigo" class="form-check-label mb-0" style="cursor: pointer;">
+              {{ set.descripcion }}
+            </label>
+          </div>
+          <input type="checkbox" 
+                 class="form-check-input" 
+                 [id]="'set-' + set.codigo"
+                 [checked]="isSetSelected(set.codigo)"
+                 (change)="onSetChange(set.codigo, $any($event.target).checked)">
+        </div>
+        
+        <!-- Alimentadores (mostrar cuando está expandida) -->
+        <div *ngIf="set.expandida" class="ms-4 mt-2">
+          <div style="font-size: 12px; font-weight: 600; background-color: rgba(241, 243, 249, 1);
+               padding: 4px 8px; margin-bottom: 8px; border-radius: 4px;">
+            Alim
+          </div>
+          
+          <div *ngFor="let alimentador of set.alimentadores" class="item-alimentador mb-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <label [for]="'alim-' + alimentador.codigo" class="form-check-label mb-0" style="cursor: pointer;">
+                {{ alimentador.descripcion }}
+              </label>
+              <input type="checkbox" 
+                     class="form-check-input" 
+                     [id]="'alim-' + alimentador.codigo"
+                     [checked]="isAlimentadorSelected(alimentador.codigo)"
+                     (change)="onAlimentadorChange(alimentador.codigo, $any($event.target).checked)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="text-end mt-3 mb-3 px-4">
+    <button type="button" class="btn btn-sm btn-success me-2" (click)="aceptar()">
+      Aceptar
+    </button>
+    <button type="button" class="btn btn-sm btn-danger" (click)="closeModal()">
+      Cancelar
+    </button>
+  </div>
+</div>
+

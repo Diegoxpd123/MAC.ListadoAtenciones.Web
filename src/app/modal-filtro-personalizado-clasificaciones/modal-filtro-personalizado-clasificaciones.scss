@@ -1,0 +1,51 @@
+:host-context(cdk-dialog-container) {
+    display: block !important;
+    background-color: white;
+    filter: drop-shadow(0 0 2em rgba(black, 0.5));
+}
+
+.header-title {
+    background: #2769b3;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    height: 60px;
+}
+
+.medida {
+    background-color: white;
+}
+
+.lista-jerarquica {
+    font-size: 14px;
+}
+
+.item-clasificacion,
+.item-tipo,
+.item-subtipo {
+    padding: 4px 0;
+}
+
+.expand-icon {
+    user-select: none;
+    font-size: 18px;
+    color: #2769b3;
+    font-weight: bold;
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+    line-height: 1;
+}
+
+.form-check-input {
+    margin-top: 0.25rem;
+    cursor: pointer;
+}
+
+.form-check-label {
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+

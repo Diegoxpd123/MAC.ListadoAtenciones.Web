@@ -2,11 +2,12 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "917a487e-cac5-4b22-b897-c454c57bc3c3"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "nuevoProyecto": {
+    "MAC.ListadoAtenciones.Web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -66,10 +67,11 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "nuevoProyecto:build:production"
+              "buildTarget": "MAC.ListadoAtenciones.Web:build:production"
             },
             "development": {
-              "buildTarget": "nuevoProyecto:build:development"
+              "buildTarget": "MAC.ListadoAtenciones.Web:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

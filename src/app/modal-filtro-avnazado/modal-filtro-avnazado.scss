@@ -1,0 +1,72 @@
+:host-context(cdk-dialog-container) {
+    display: block !important;
+    background-color: white;
+    filter: drop-shadow(0 0 2em rgba(black, 0.5));
+
+}
+
+section {
+    font-size: 14px;
+
+}
+
+.header-title {
+    background: #2769b3;
+    color: white;
+
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    height: 60px;
+
+}
+
+.tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+    /* Scroll horizontal */
+    // border: 1px solid #ccc;
+    border-radius: 8px;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+
+
+    .medida {
+        width: 380px !important;
+    }
+
+    .rspMargenes {
+        padding: 10px !important;
+    }
+
+    .sinDflex {
+        display: inherit !important;
+    }
+
+    .rpsMedida {
+        width: 100% !Important;
+    }
+
+    .rspPdgCero {
+        padding: 0 !important;
+    }
+
+    .rspMrgCero {
+        margin: 0 !important;
+    }
+
+    .rspMargin {
+        margin-top: 10px;
+    }
+
+    .rspMarginB {
+        margin-bottom: 20px;
+    }
+
+    .rspPadding {
+        padding-bottom: 10px;
+    }
+}
