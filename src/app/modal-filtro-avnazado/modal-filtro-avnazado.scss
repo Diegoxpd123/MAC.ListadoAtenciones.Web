@@ -70,3 +70,87 @@ section {
         padding-bottom: 10px;
     }
 }
+
+// Estilos para el multiselect personalizado
+.custom-multiselect {
+    position: relative;
+    width: 100%;
+}
+
+.custom-multiselect button.form-select {
+    position: relative;
+    cursor: pointer;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Agregar la flecha igual que los select normales de Bootstrap
+.custom-multiselect button.multiselect-button::after {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 0.35em solid;
+    border-right: 0.35em solid transparent;
+    border-bottom: 0;
+    border-left: 0.35em solid transparent;
+    pointer-events: none;
+}
+
+.custom-multiselect button.active.multiselect-button::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.multiselect-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    margin-top: 0.125rem;
+    max-height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.multiselect-search {
+    padding: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.multiselect-options {
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.multiselect-option {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.15s;
+}
+
+.multiselect-option:hover {
+    background-color: #f8f9fa;
+}
+
+.multiselect-option input[type="checkbox"] {
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.multiselect-option span {
+    flex: 1;
+    user-select: none;
+}

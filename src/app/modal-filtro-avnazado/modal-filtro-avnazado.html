@@ -100,19 +100,34 @@
                     <div class="col-sm-4">
                       <label for="fDistrito" class="form-label mb-1">Distrito</label>
                     </div>
-                    <div class="col-sm-8 ">
-                      <select class="form-select form-select-sm" 
-                              id="fDistrito" 
-                              [(ngModel)]="filtro.distritos" 
-                              name="distritos"
-                              multiple
-                              size="3"
-                              style="min-height: 70px;">
-                        <option *ngFor="let distrito of distritos()" [value]="distrito.codigo">
-                          {{ distrito.descripcion }}
-                        </option>
-                      </select>
-                      <small class="form-text text-muted" style="font-size: 0.7rem;">Mantén presionado Ctrl (o Cmd en Mac) para seleccionar múltiples opciones</small>
+                    <div class="col-sm-8 position-relative">
+                      <div class="custom-multiselect">
+                        <button type="button" 
+                                class="form-select form-select-sm w-100 text-start multiselect-button"
+                                (click)="toggleDistritoDropdown()"
+                                [class.active]="distritoDropdownAbierto()">
+                          {{ obtenerTextoDistritos() }}
+                        </button>
+                        <div *ngIf="distritoDropdownAbierto()" class="multiselect-dropdown">
+                          <div class="multiselect-search">
+                            <input type="text" 
+                                   class="form-control form-control-sm" 
+                                   placeholder="Buscar..."
+                                   [value]="distritoBusqueda()"
+                                   (input)="distritoBusqueda.set($any($event.target).value); filtrarDistritos()"
+                                   (click)="$event.stopPropagation()">
+                          </div>
+                          <div class="multiselect-options">
+                            <label *ngFor="let distrito of distritosFiltrados()" class="multiselect-option">
+                              <input type="checkbox" 
+                                     [checked]="distritoEstaSeleccionado(distrito.codigo)"
+                                     (change)="toggleDistrito(distrito.codigo)"
+                                     (click)="$event.stopPropagation()">
+                              <span>{{ distrito.descripcion }}</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div style="width: 10%">

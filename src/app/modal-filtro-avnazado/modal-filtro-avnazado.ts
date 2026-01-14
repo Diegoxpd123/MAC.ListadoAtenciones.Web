@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, OnInit, signal, ChangeDetectorRef, HostListener } from '@angular/core';
 import { Api } from '../service/api';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +20,11 @@ export class ModalFiltroAvnazado implements OnInit {
   private parametrosService = inject(ParametrosService);
   private cdr = inject(ChangeDetectorRef);
 
+  // Estado del multiselect de distritos
+  readonly distritoDropdownAbierto = signal(false);
+  readonly distritoBusqueda = signal('');
+  readonly distritosFiltrados = signal<ListaGenericaDto[]>([]);
+
   // Listas para los desplegables del filtro avanzado - Datos de llamada
   readonly tipoIdLlamada = signal<ListaGenericaDto[]>([]);
   readonly descripciones = signal<ListaGenericaDto[]>([]);
@@ -29,17 +34,17 @@ export class ModalFiltroAvnazado implements OnInit {
   readonly sucursales = signal<ListaGenericaDto[]>([]);
   readonly centrosServicio = signal<ListaGenericaDto[]>([]);
   readonly condicionesFecha = signal<ListaGenericaDto[]>([]);
-  
+
   // Listas para los desplegables - Datos del predio
   readonly clasificaciones = signal<ListaGenericaDto[]>([]);
   readonly tiposPedido = signal<ListaGenericaDto[]>([]);
   readonly subTiposPedido = signal<ListaGenericaDto[]>([]);
   readonly estados = signal<ListaGenericaDto[]>([]);
-  
+
   // Listas para los desplegables - Datos de eléctricos
   readonly sets = signal<ListaGenericaDto[]>([]);
   readonly alimentadores = signal<ListaGenericaDto[]>([]);
-  
+
   // Opciones para el campo Fecha llamada
   readonly opcionesFecha = [
     { valor: '', texto: '-- Seleccionar --' },
@@ -69,7 +74,107 @@ export class ModalFiltroAvnazado implements OnInit {
   readonly errorFecha = signal<string>('');
 
   ngOnInit(): void {
+    // Inicializar con datos de prueba si es necesario
+    if (this.distritos().length === 0) {
+      this.distritos.set([
+        { codigo: '1', descripcion: 'Distrito 1', valorAlf: 'D1' },
+        { codigo: '2', descripcion: 'Distrito 2', valorAlf: 'D2' },
+        { codigo: '3', descripcion: 'Distrito 3', valorAlf: 'D3' },
+        { codigo: '4', descripcion: 'Distrito 4', valorAlf: 'D4' },
+        { codigo: '5', descripcion: 'Distrito 5', valorAlf: 'D5' }
+      ]);
+    }
+    this.distritosFiltrados.set(this.distritos());
     this.cargarTodosLosParametros();
+  }
+
+  /**
+   * Obtiene el texto a mostrar en el campo de distrito
+   */
+  protected obtenerTextoDistritos(): string {
+    if (!this.filtro.distritos || this.filtro.distritos.length === 0) {
+      return '-- Seleccionar --';
+    }
+    if (this.filtro.distritos.length === 1) {
+      const distrito = this.distritos().find(d => d.codigo === this.filtro.distritos[0]);
+      return distrito ? distrito.descripcion : '';
+    }
+    if (this.filtro.distritos.length > 1 && this.filtro.distritos.length <= 3) {
+      return this.filtro.distritos
+        .map(codigo => {
+          const distrito = this.distritos().find(d => d.codigo === codigo);
+          return distrito ? distrito.descripcion : '';
+        })
+        .filter(d => d)
+        .join(', ');
+    }
+    return `${this.filtro.distritos.length} distritos seleccionados`;
+  }
+
+  /**
+   * Verifica si un distrito está seleccionado
+   */
+  protected distritoEstaSeleccionado(codigo: string): boolean {
+    return this.filtro.distritos.includes(codigo);
+  }
+
+  /**
+   * Toggle de selección de distrito
+   */
+  protected toggleDistrito(codigo: string): void {
+    const index = this.filtro.distritos.indexOf(codigo);
+    if (index > -1) {
+      this.filtro.distritos.splice(index, 1);
+    } else {
+      this.filtro.distritos.push(codigo);
+    }
+    this.cdr.detectChanges();
+  }
+
+  /**
+   * Filtra los distritos según la búsqueda
+   */
+  protected filtrarDistritos(): void {
+    const busqueda = this.distritoBusqueda().toLowerCase();
+    if (!busqueda) {
+      this.distritosFiltrados.set(this.distritos());
+    } else {
+      this.distritosFiltrados.set(
+        this.distritos().filter(d =>
+          d.descripcion.toLowerCase().includes(busqueda)
+        )
+      );
+    }
+  }
+
+  /**
+   * Abre/cierra el dropdown de distritos
+   */
+  protected toggleDistritoDropdown(): void {
+    this.distritoDropdownAbierto.update(v => !v);
+    if (this.distritoDropdownAbierto()) {
+      this.distritoBusqueda.set('');
+      this.distritosFiltrados.set(this.distritos());
+    }
+  }
+
+  /**
+   * Cierra el dropdown de distritos
+   */
+  protected cerrarDistritoDropdown(): void {
+    this.distritoDropdownAbierto.set(false);
+    this.distritoBusqueda.set('');
+  }
+
+  /**
+   * Cierra el dropdown al hacer click fuera
+   */
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.custom-multiselect')) {
+      this.cerrarDistritoDropdown();
+    }
   }
 
   protected closeModal(): void {
@@ -90,9 +195,19 @@ export class ModalFiltroAvnazado implements OnInit {
           if (response.entidad['Descripciones']) {
             this.descripciones.set(response.entidad['Descripciones']);
           }
-          if (response.entidad['Distritos']) {
+          if (response.entidad['Distritos'] && response.entidad['Distritos'].length > 0) {
             this.distritos.set(response.entidad['Distritos']);
+          } else {
+            // Datos de prueba si no hay datos
+            this.distritos.set([
+              { codigo: '1', descripcion: 'Distrito 1', valorAlf: 'D1' },
+              { codigo: '2', descripcion: 'Distrito 2', valorAlf: 'D2' },
+              { codigo: '3', descripcion: 'Distrito 3', valorAlf: 'D3' },
+              { codigo: '4', descripcion: 'Distrito 4', valorAlf: 'D4' },
+              { codigo: '5', descripcion: 'Distrito 5', valorAlf: 'D5' }
+            ]);
           }
+          this.distritosFiltrados.set(this.distritos());
           if (response.entidad['ZonaLlamada']) {
             this.zonas.set(response.entidad['ZonaLlamada']);
           }
@@ -143,19 +258,6 @@ export class ModalFiltroAvnazado implements OnInit {
     });
   }
 
-  /**
-   * Obtiene el texto a mostrar en el select cuando hay selecciones múltiples
-   */
-  protected obtenerTextoDistritos(): string {
-    if (!this.filtro.distritos || this.filtro.distritos.length === 0) {
-      return '-- Seleccionar --';
-    }
-    if (this.filtro.distritos.length === 1) {
-      const distrito = this.distritos().find(d => d.codigo === this.filtro.distritos[0]);
-      return distrito ? distrito.descripcion : '';
-    }
-    return `${this.filtro.distritos.length} distritos seleccionados`;
-  }
 
   /**
    * Verifica si se debe mostrar los dos inputs de calendario (cuando se selecciona "entre")
@@ -186,11 +288,11 @@ export class ModalFiltroAvnazado implements OnInit {
       if (this.filtro.fechaDesde && this.filtro.fechaHasta) {
         const fechaInicio = new Date(this.filtro.fechaDesde);
         const fechaFin = new Date(this.filtro.fechaHasta);
-        
+
         // Calcular la diferencia en días
         const diferenciaMs = fechaFin.getTime() - fechaInicio.getTime();
         const diferenciaDias = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
-        
+
         if (diferenciaDias > 30) {
           this.errorFecha.set('La diferencia entre las fechas no puede ser mayor a 30 días');
         } else if (diferenciaDias < 0) {
